@@ -2,9 +2,11 @@
 #include "Event.h"
 
 void EventController::handle(event_t* data) {
+    // parse event
+
     // get entity id
 
-    // get entity rules for event type
+    // get entity rules for event type and appliccation
 
     // run rules on data. no need to optimize for now. return type should be some internal event data object. not the Event class
 

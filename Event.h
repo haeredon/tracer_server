@@ -3,13 +3,20 @@
 
 #include <stdint.h>
 
+
+
+
 enum class EVENT_TYPE {
     HTTP
 };
 
-struct event_t {
+struct entity_t {
     uint32_t entityId;
     uint32_t spanId;
+};
+
+struct event_t {
+    struct entity_t entity;
 
     EVENT_TYPE type;
 };
