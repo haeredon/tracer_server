@@ -1,4 +1,5 @@
 #include "Receiver.h"
+#include "Event.h"
 
 #include <iostream>
 
@@ -44,12 +45,17 @@ void Receiver::start() {
         uint8_t buffer[1024] = { 0 };
         recv(clientSocket, buffer, sizeof(buffer), 0);        
 
-        for(auto it = this->receiveHandlers.begin(); it != this->receiveHandlers.end() ; ++it) {
-            (*it)(buffer);
+        for(auto it = this->controllers.begin(); it != this->controllers.end() ; ++it) {
+            (*it)->handle((event_t*) buffer);            
         }
 
+        send(clientSocket, buffer, 10, 0);
         std::cout << "Message from client: " << buffer << std::endl;    
     }
+}
+
+void Receiver::addController(AbstractController* controller) {
+    this->controllers.push_back(controller);
 }
 
 void Receiver::stop() {

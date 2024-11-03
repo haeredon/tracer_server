@@ -8,6 +8,8 @@
 #include <functional>
 #include <vector>
 
+#include "AbstractController.h"
+
 // do asynch accept
 // call receivehandlers in other threads
 // adjust receive size/always get full request
@@ -23,7 +25,7 @@ class Receiver {
 
         struct sockaddr_in addr;
 
-        std::vector<std::function<void(uint8_t*)>> receiveHandlers;
+        std::vector<AbstractController*> controllers;
 
     public:
 
@@ -35,7 +37,7 @@ class Receiver {
 
         void stop();
 
-        void addReceiveHandler(std::function<void(uint8_t*)> handler);
+        void addController(AbstractController* controller);
 
 };
 
