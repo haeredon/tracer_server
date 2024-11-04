@@ -9,6 +9,7 @@
 
 #include "config.h"
 #include "Receiver.h"
+#include "EventController.h"
 
 
 int main(int argc, char* argv[]) {
@@ -17,7 +18,10 @@ int main(int argc, char* argv[]) {
   Receiver receiver {8080};
 
   receiver.initialize();
+  receiver.addController(new EventController {});
+
   receiver.start();
+  
   receiver.stop();
 }         
 

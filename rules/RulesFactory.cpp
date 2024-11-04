@@ -1,6 +1,10 @@
 #include "RulesFactory.h"
+#include "CountGetsRule.h"
 
-const std::vector<AbstractRule>& RulesFactory::getRules(struct entity_t* entity) {
-    const auto ret = new std::vector<AbstractRule>{};
-    return *ret;
+RulesFactory::RulesFactory() {
+    rules.try_emplace(1);
+}
+
+AbstractRule& RulesFactory::getRule(uint32_t ruleId) {
+    return rules.at(ruleId);        
 }

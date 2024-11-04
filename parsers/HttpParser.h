@@ -1,18 +1,20 @@
 #ifndef TRACE_SERVER_PARSERS_HTTP_PARSER_H
 #define TRACE_SERVER_PARSERS_HTTP_PARSER_H
 
-#include "AbstractController.h"
+#include "AbstractEventParser.h"
 
 #include <cstdint>
+#include <unordered_map>
+#include <string>
 
-class HttpParser {
+class HttpParser : public AbstractEventParser {
 
     public:
 
-        void parse(uint8_t* data);
+        std::string getValue(std::string parseSpace, std::string key);
 
 
-}
+};
 
 
 #endif // TRACE_SERVER_PARSERS_HTTP_PARSER_H

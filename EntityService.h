@@ -17,7 +17,7 @@ class EntityService {
 
         EntityService();
 
-        std::vector<AbstractRule*> getEntityRules(entity_t entity);
+        std::vector<AbstractRule&> getEntityRules(entity_t entity, EVENT_TYPE eventType);
 
 };
 

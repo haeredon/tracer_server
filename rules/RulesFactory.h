@@ -6,12 +6,19 @@
 
 #include <cstdint>
 #include <vector>
+#include <unordered_map>
 
 class RulesFactory {
 
+    private:
+
+        std::unordered_map<uint32_t, AbstractRule> rules;
+
     public:
 
-        const std::vector<AbstractRule>& getRules(struct entity_t* entity);
+        RulesFactory();
+
+        AbstractRule& getRule(uint32_t ruleId);
 
 };
 

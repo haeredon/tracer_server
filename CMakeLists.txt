@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.25)
 project(TracerServer VERSION 1.0)
 
 # specify the C++ standard
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_VERBOSE_MAKEFILE on)
@@ -18,6 +18,11 @@ configure_file(config.h.in config.h)
 add_executable(TracerServer 
     main.cpp
     Receiver.cpp
+    EventController.cpp
+    EntityService.cpp
+    rules/RulesFactory.cpp
+    parsers/HttpParser.cpp
+    parsers/ParserFactory.cpp
 )
 
-target_include_directories("${PROJECT_NAME}" PUBLIC "${PROJECT_BINARY_DIR}")
+target_include_directories("${PROJECT_NAME}" PUBLIC "${PROJECT_BINARY_DIR}" .)

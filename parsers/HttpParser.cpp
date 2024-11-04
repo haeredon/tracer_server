@@ -1,4 +1,7 @@
 #include "HttpParser.h"
 
+#include <string>
 
-void HttpParser::parse(uint8_t* data) {}
+std::string HttpParser::getValue(std::string parseSpace, std::string key) {
+    return "";   
+}
