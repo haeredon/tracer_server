@@ -13,7 +13,7 @@ class ParserFactory {
 
     public:
 
-        std::unique_ptr<AbstractEventParser> getParser(EVENT_TYPE eventType);
+        std::unique_ptr<AbstractEventParser> getParser(EVENT_TYPE eventType, uint8_t* data, uint16_t size);
 
 };
 

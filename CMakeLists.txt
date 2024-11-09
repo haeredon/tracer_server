@@ -25,6 +25,7 @@ add_executable(TracerServer
     rules/CountGetsRule.cpp
     parsers/HttpParser.cpp
     parsers/ParserFactory.cpp
+    parsers/AbstractEventParser.cpp
     storage/KeyValueDb.h
 )
 

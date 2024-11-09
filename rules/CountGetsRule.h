@@ -12,7 +12,7 @@ class CountGetsRule : public AbstractRule {
 
     public:
 
-        std::unordered_map<std::string, std::string> evaluate(uint8_t* data, AbstractEventParser& parser);
+        std::unordered_map<std::string, std::string> evaluate(AbstractEventParser& parser);
 
 };
 

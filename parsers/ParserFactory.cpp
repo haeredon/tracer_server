@@ -6,11 +6,11 @@
 #include <memory>
 
 
-std::unique_ptr<AbstractEventParser> ParserFactory::getParser(EVENT_TYPE eventType) {
+std::unique_ptr<AbstractEventParser> ParserFactory::getParser(EVENT_TYPE eventType, uint8_t* data, uint16_t size) {
     
 
     if(eventType == EVENT_TYPE::HTTP) {
-        return std::make_unique<HttpParser>();
+        return std::make_unique<HttpParser>(data, size);
     }
 
     throw;

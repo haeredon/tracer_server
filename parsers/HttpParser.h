@@ -9,7 +9,13 @@
 
 class HttpParser : public AbstractEventParser {
 
+    private:
+
+        std::unordered_map<std::string, std::string> values;
+
     public:
+
+        HttpParser(uint8_t* data, uint16_t size);
 
         std::string getValue(std::string parseSpace, std::string key);
 

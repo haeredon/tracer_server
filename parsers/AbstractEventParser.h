@@ -7,7 +7,16 @@
 
 class AbstractEventParser {
 
+    protected:
+
+        uint8_t* data;
+        uint16_t size;
+
+        uint16_t dataOffset = 0;
+
     public:
+
+        AbstractEventParser(uint8_t* data, uint16_t size);
 
         virtual std::string getValue(std::string parseSpace, std::string key) = 0;
 

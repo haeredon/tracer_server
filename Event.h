@@ -17,8 +17,9 @@ struct entity_t {
 
 struct event_t {
     struct entity_t entity;
-
     EVENT_TYPE type;
+    uint16_t size;
+    uint8_t data;
 };
 
 
