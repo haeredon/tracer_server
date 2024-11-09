@@ -21,6 +21,7 @@ add_executable(TracerServer
     EventController.cpp
     EntityService.cpp
     rules/RulesFactory.cpp
+    rules/CountGetsRule.cpp
     parsers/HttpParser.cpp
     parsers/ParserFactory.cpp
 )

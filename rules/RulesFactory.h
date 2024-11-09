@@ -12,13 +12,13 @@ class RulesFactory {
 
     private:
 
-        std::unordered_map<uint32_t, AbstractRule> rules;
+        std::unordered_map<uint32_t, std::reference_wrapper<AbstractRule>> rules;
 
     public:
 
         RulesFactory();
 
-        AbstractRule& getRule(uint32_t ruleId);
+        std::reference_wrapper<AbstractRule> getRule(uint32_t ruleId);
 
 };
 

@@ -2,9 +2,12 @@
 #include "CountGetsRule.h"
 
 RulesFactory::RulesFactory() {
-    rules.try_emplace(1);
+    CountGetsRule* rule = new CountGetsRule;
+    std::reference_wrapper<AbstractRule> wrapper{*rule};
+
+    rules.insert({ 1, wrapper });
 }
 
-AbstractRule& RulesFactory::getRule(uint32_t ruleId) {
+std::reference_wrapper<AbstractRule> RulesFactory::getRule(uint32_t ruleId) {
     return rules.at(ruleId);        
 }

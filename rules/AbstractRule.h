@@ -12,7 +12,7 @@ class AbstractRule {
 
     public:
 
-        std::unordered_map<std::string, std::string> evaluate(uint8_t* data, AbstractEventParser& parser);
+        virtual std::unordered_map<std::string, std::string> evaluate(uint8_t* data, AbstractEventParser& parser) = 0;
 
 };
 
