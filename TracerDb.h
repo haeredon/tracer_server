@@ -6,15 +6,22 @@
 #include <unordered_map>
 #include <string>
 
+template<class STORAGE_T>
 class TracerDb {
 
     private:
         
-        
+        STORAGE_T db;
 
     public:
 
-        void saveRuleEvent(entity_t entity, uint32_t ruleId, std::unordered_map<std::string, std::string>&& data);
+        TracerDb(STORAGE_T&& db) : db(std::forward<STORAGE_T>(db)) { }
+
+
+        void saveRuleEvent(entity_t entity, uint32_t ruleId, std::unordered_map<std::string, std::string>&& data) {
+            
+        }
+        
 
 };
 

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <unordered_map>
+#include <iostream>
 
 template<class KEY_T, class VAL_T>
 class KeyValueDb {
@@ -26,9 +27,10 @@ class KeyValueDb {
         }
 
         void update(KEY_T key, VAL_T value) {
-
+            printf("KeyValueDb::update(): Not implemented.\n");
+            throw;
         }
 
-}
+};
 
 #endif // TRACE_SERVER_STORAGE_KEY_VALUE_DB_H
