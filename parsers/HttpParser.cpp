@@ -15,6 +15,6 @@ std::string HttpParser::getValue(std::string parseSpace, std::string key) {
     }
 
     for (uint16_t i = dataOffset ; i < size ; i++) {
-                
+                        
     }
 }

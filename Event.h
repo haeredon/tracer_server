@@ -2,7 +2,7 @@
 #define TRACE_SERVER_EVENT_H
 
 #include <stdint.h>
-
+#include <ctime>
 
 
 
@@ -20,6 +20,23 @@ struct event_t {
     EVENT_TYPE type;
     uint16_t size;
     uint8_t data;
+};
+
+class RuleEvent {
+
+    private:
+
+        uint32_t ruleId;
+        bool occured;
+        time_t timestamp;
+
+        uint8_t* data;
+
+    public:
+
+        RuleEvent(uint32_t ruleId, bool occured, time_t timestamp, uint8_t* data) : ruleId(ruleId), occured(occured), timestamp(timestamp), data(data) {
+
+        }
 };
 
 

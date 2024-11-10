@@ -10,9 +10,13 @@
 
 class AbstractRule {
 
+    protected:
+
+        uint32_t id;
+
     public:
 
-        virtual std::unordered_map<std::string, std::string> evaluate(AbstractEventParser& parser) = 0;
+        virtual RuleEvent evaluate(AbstractEventParser& parser) = 0;
 
 };
 

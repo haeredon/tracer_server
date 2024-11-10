@@ -1,16 +1,13 @@
 #include "CountGetsRule.h"
+#include "Event.h"
 
 #include <iostream>
 #include <unordered_map>
 
-std::unordered_map<std::string, std::string> CountGetsRule::evaluate(AbstractEventParser& parser) {
-    std::string method = parser.getValue("headers", "method");
 
-    std::unordered_map<std::string, std::string> ret; 
+RuleEvent CountGetsRule::evaluate(AbstractEventParser& parser) {
+     bool occured = parser.getValue("headers", "method") == "GET";
 
-    if(method == "GET") {
-        ret.insert({ "GET", "1" });
-    }
-
-    return ret;
+     return RuleEvent { this->id, occured, 0, 0 };
 }
+
