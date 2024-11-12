@@ -2,7 +2,7 @@
 #define TRACE_SERVER_RULES_ABSTRACT_RULE_H
 
 #include "Event.h"
-#include "parsers/AbstractEventParser.h"
+#include "parsers/ParserFactory.h"
 
 #include <cstdint>
 #include <unordered_map> 
@@ -16,7 +16,9 @@ class AbstractRule {
 
     public:
 
-        virtual RuleEvent evaluate(AbstractEventParser& parser) = 0;
+        virtual RuleEvent evaluate(ParserFactory& parserFactory) = 0;
+
+        virtual uint32_t getId();
 
 };
 

@@ -18,10 +18,13 @@ class TracerDb {
         TracerDb(STORAGE_T&& db) : db(std::forward<STORAGE_T>(db)) { }
 
 
-        void saveRuleEvent(entity_t entity, uint32_t ruleId, std::unordered_map<std::string, std::string>&& data) {
-            
+        void saveRuleEvent(entity_t entity, uint32_t ruleId, RuleEvent&& RuleEvent) {
+                        
         }
         
+        void saveNetworkPacket(entity_t entity, uint8_t* data, uint16_t size) {
+            
+        }
 
 };
 

@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.25)
 project(TracerServer VERSION 1.0)
 
 # specify the C++ standard
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_VERBOSE_MAKEFILE on)
@@ -21,11 +21,11 @@ add_executable(TracerServer
     TracerDb.h
     EventController.h
     EntityService.cpp
+    rules/AbstractRule.cpp
     rules/RulesFactory.cpp
     rules/CountGetsRule.cpp
     parsers/HttpParser.cpp
     parsers/ParserFactory.cpp
-    parsers/AbstractEventParser.cpp
     storage/KeyValueDb.h
 )
 

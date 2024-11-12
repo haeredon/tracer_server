@@ -1,7 +1,7 @@
 #ifndef TRACE_SERVER_RULES_COUNT_GETS_RULE_H
 #define TRACE_SERVER_RULES_COUNT_GETS_RULE_H
 
-#include "parsers/AbstractEventParser.h"
+#include "parsers/HttpParser.h"
 #include "AbstractRule.h"
 
 #include <unordered_map>
@@ -10,9 +10,12 @@
 
 class CountGetsRule : public AbstractRule {
 
+
     public:
 
-        RuleEvent evaluate(AbstractEventParser& parser) override;
+        CountGetsRule();
+
+        RuleEvent evaluate(ParserFactory& parserFactory) override;
 
 };
 

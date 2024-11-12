@@ -1,17 +1,17 @@
-#include "parsers/AbstractEventParser.h"
+
 #include "ParserFactory.h"
 #include "HttpParser.h"
 #include "Event.h"
 
 #include <memory>
 
+ParserFactory::ParserFactory(uint8_t* data, uint16_t size) : data(data), size(size), httpParser(nullptr) {
 
-std::unique_ptr<AbstractEventParser> ParserFactory::getParser(EVENT_TYPE eventType, uint8_t* data, uint16_t size) {
-    
+}
 
-    if(eventType == EVENT_TYPE::HTTP) {
-        return std::make_unique<HttpParser>(data, size);
+HttpParser& ParserFactory::getHttpParser() {
+    if(httpParser == nullptr) {
+        httpParser = new HttpParser{this->data, this->size};
     }
-
-    throw;
+    return *httpParser;    
 }

@@ -24,10 +24,9 @@ int main(int argc, char* argv[]) {
   auto keyValueStore = new KeyValueDb<std::string, std::string>;
   TracerDb<KeyValueDb<std::string, std::string>> tracerDb { std::move(*keyValueStore) };
   EntityService entityService;
-  ParserFactory parserFactory;
 
-  auto controller = new EventController<TracerDb<KeyValueDb<std::string, std::string>>, EntityService, ParserFactory> {
-    tracerDb, entityService, parserFactory
+  auto controller = new EventController<TracerDb<KeyValueDb<std::string, std::string>>, EntityService> {
+    tracerDb, entityService
   };
 
   receiver.initialize();
