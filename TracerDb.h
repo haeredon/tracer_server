@@ -18,7 +18,7 @@ class TracerDb {
         TracerDb(STORAGE_T&& db) : db(std::forward<STORAGE_T>(db)) { }
 
 
-        void saveRuleEvent(entity_t entity, uint32_t ruleId, RuleEvent&& RuleEvent) {
+        void saveRuleEvent(entity_t entity, RuleEvent&& RuleEvent) {
                         
         }
         

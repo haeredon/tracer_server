@@ -30,7 +30,7 @@ class EventController : public AbstractController {
                 printf("Run rule\n");
 
                 RuleEvent ruleEvent = rule.get().evaluate(parserFactory);
-                db.saveRuleEvent(event->entity, rule.get().getId(), std::move(ruleEvent));                
+                db.saveRuleEvent(event->entity, std::move(ruleEvent));                
             }
 
             db.saveNetworkPacket(event->entity, &event->data, event->size);
