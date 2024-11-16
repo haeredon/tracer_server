@@ -18,7 +18,8 @@ configure_file(config.h.in config.h)
 add_executable(TracerServer 
     main.cpp
     Receiver.cpp
-    TracerDb.h
+    AbstractTracerDb.h
+    FileStorageTracerDb.h
     EventController.h
     EntityService.cpp
     rules/AbstractRule.cpp
@@ -26,7 +27,7 @@ add_executable(TracerServer
     rules/CountGetsRule.cpp
     parsers/HttpParser.cpp
     parsers/ParserFactory.cpp
-    storage/KeyValueDb.h
+    storage/FileStorage.cpp
 )
 
 target_include_directories("${PROJECT_NAME}" PUBLIC "${PROJECT_BINARY_DIR}" .)

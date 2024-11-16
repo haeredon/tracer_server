@@ -10,10 +10,10 @@
 #include "config.h"
 #include "Receiver.h"
 #include "EventController.h"
-#include "TracerDb.h"
+#include "FileStorageTracerDb.h"
 #include "EntityService.h"
 #include "parsers/ParserFactory.h"
-#include "storage/KeyValueDb.h"
+#include "storage/FileStorage.h"
 
 
 int main(int argc, char* argv[]) {
@@ -21,11 +21,11 @@ int main(int argc, char* argv[]) {
 
   Receiver receiver {8080};
   
-  auto keyValueStore = new KeyValueDb<std::string, std::string>;
-  TracerDb<KeyValueDb<std::string, std::string>> tracerDb { std::move(*keyValueStore) };
+  auto fileStorage = new FileStorage{ };
+  FileStorageTracerDb<FileStorage> tracerDb { std::move(*fileStorage) };
   EntityService entityService;
 
-  auto controller = new EventController<TracerDb<KeyValueDb<std::string, std::string>>, EntityService> {
+  auto controller = new EventController<FileStorageTracerDb<FileStorage>, EntityService> {
     tracerDb, entityService
   };
 

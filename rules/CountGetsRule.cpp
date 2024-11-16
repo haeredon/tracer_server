@@ -11,6 +11,6 @@ CountGetsRule::CountGetsRule() {
 RuleEvent CountGetsRule::evaluate(ParserFactory& parserFactory) {    
      bool occured = parserFactory.getHttpParser().isMethod("GET");
 
-     return RuleEvent { this->id, occured, 0, 0 };
+     return RuleEvent { this->id, occured, 0, 0, 0 };
 }
 

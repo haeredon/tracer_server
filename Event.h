@@ -24,17 +24,17 @@ struct event_t {
 
 class RuleEvent {
 
-    private:
+
+    public:
 
         uint32_t ruleId;
         bool occured;
         time_t timestamp;
 
         uint8_t* data;
+        uint16_t dataSize;
 
-    public:
-
-        RuleEvent(uint32_t ruleId, bool occured, time_t timestamp, uint8_t* data) : ruleId(ruleId), occured(occured), timestamp(timestamp), data(data) {
+        RuleEvent(uint32_t ruleId, bool occured, time_t timestamp, uint8_t* data, uint16_t dataSize) : ruleId(ruleId), occured(occured), timestamp(timestamp), data(data), dataSize(dataSize) {
 
         }
 };

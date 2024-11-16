@@ -4,7 +4,6 @@
 #include "AbstractController.h"
 #include "EntityService.h"
 #include "Event.h"
-#include "TracerDb.h"
 
 #include <cstdint>
 #include <unordered_map>
@@ -33,7 +32,7 @@ class EventController : public AbstractController {
                 db.saveRuleEvent(event->entity, std::move(ruleEvent));                
             }
 
-            db.saveNetworkPacket(event->entity, &event->data, event->size);
+            db.saveNetworkPacket(0, event->entity, &event->data, event->size);
         }   
 
 };
